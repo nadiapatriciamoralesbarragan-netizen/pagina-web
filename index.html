@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica JavaScript - Programación Web</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* --- Estilos básicos --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        header img.logo {
+            width: 60px;
+            cursor: pointer;
+        }
+
+        header h1 {
+            cursor: pointer;
+            font-size: 1.4rem;
+        }
+
+        nav {
+            background-color: #333;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 12px 20px;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ffb300;
+            color: #000;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        details {
+            margin-bottom: 15px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #222;
+            color: white;
+        }
+
+        section {
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        button {
+            background-color: #ffb300;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffa000;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="inicio">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" 
+             alt="Logo JavaScript" class="logo" onclick="mostrarSeccion('inicio')">
+        <h1 onclick="mostrarSeccion('inicio')">Práctica - Introducción a JavaScript</h1>
+    </header>
+
+    <!-- 🔹 Menú de navegación -->
+    <nav>
+        <a href="#" onclick="mostrarSeccion('inicio')">Inicio</a>
+        <a href="#" onclick="mostrarSeccion('temas')">Temas</a>
+        <a href="#" onclick="mostrarSeccion('ejemplos')">Ejemplos</a>
+        <a href="#" onclick="mostrarSeccion('contacto')">Contacto</a>
+    </nav>
+
+    <main>
+
+        <!-- 🔹 Sección Inicio -->
+        <section id="seccion-inicio" class="active">
+            <h2>Bienvenido a la práctica de JavaScript</h2>
+            <p>En esta página encontrarás conceptos fundamentales de JavaScript con ejemplos interactivos.  
+            Navega por las pestañas para explorar los temas y probar fragmentos de código.</p>
+        </section>
+
+        <!-- 🔹 Sección Temas -->
+        <section id="seccion-temas">
+            <h2>Temario JavaScript</h2>
+
+            <details open>
+                <summary>1. ¿Qué es JavaScript?</summary>
+                <p>JavaScript es un lenguaje de programación que permite agregar interactividad, lógica y dinamismo a las páginas web.</p>
+                <button onclick="mostrarMensaje()">Ejemplo</button>
+                <pre>// script.js
+function mostrarMensaje() {
+    alert('¡Hola! Este mensaje proviene de JavaScript.');
+}</pre>
+            </details>
+
+            <details>
+                <summary>2. Tipos de datos</summary>
+                <p>Incluyen primitivos (<b>String</b>, <b>Number</b>, <b>Boolean</b>, <b>Null</b>, <b>Undefined</b>) y estructurados (<b>Object</b>, <b>Array</b>).</p>
+                <button onclick="verTipos()">Mostrar tipos</button>
+            </details>
+
+            <details>
+                <summary>3. Operadores y expresiones</summary>
+                <p>Permiten realizar operaciones matemáticas o lógicas sobre los valores.</p>
+                <button onclick="sumar()">Ejecutar suma</button>
+            </details>
+
+            <details>
+                <summary>4. Variables</summary>
+                <p>Las variables almacenan datos. Se pueden declarar con <b>var</b>, <b>let</b> o <b>const</b>.</p>
+                <button onclick="mostrarVariables()">Mostrar variables</button>
+            </details>
+        </section>
+
+        <!-- 🔹 Sección Ejemplos -->
+        <section id="seccion-ejemplos">
+            <h2>Ejemplos Prácticos</h2>
+            <p>Prueba algunos códigos básicos para comprender mejor el comportamiento de JavaScript.</p>
+            <button onclick="entradaSalida()">Entrada y salida</button>
+            <button onclick="estructurasControl()">Estructuras de control</button>
+            <button onclick="saludo()">Saludar</button>
+            <button onclick="mostrarObjeto()">Mostrar objeto</button>
+        </section>
+
+        <!-- 🔹 Sección Contacto -->
+        <section id="seccion-contacto">
+            <h2>Contacto</h2>
+            <p>Si tienes dudas o comentarios sobre esta práctica, puedes escribirnos:</p>
+            <ul>
+                <li><b>Nadia Patricia</b> - nadia@example.com</li>
+                <li><b>Leslie de la Cruz</b> - leslie@example.com</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 | Elaborado por Nadia Patricia y Leslie - Práctica Programación Web</p>
+    </footer>
+
+    <script>
+        // --- Mostrar secciones ---
+        function mostrarSeccion(nombre) {
+            const secciones = document.querySelectorAll('section');
+            secciones.forEach(sec => sec.classList.remove('active'));
+            document.getElementById('seccion-' + nombre).classList.add('active');
+        }
+
+        // --- Ejemplos ---
+        function mostrarMensaje() { alert('¡Hola! Este mensaje proviene de JavaScript.'); }
+        function verTipos() { console.log(typeof 10, typeof "Hola", typeof true, typeof {nombre: "Ana"}); alert("Revisa la consola"); }
+        function sumar() { alert("La suma es: " + (5 + 3)); }
+        function mostrarVariables() { console.log("Carlos", 25, "México"); alert("Variables mostradas en la consola"); }
+        function entradaSalida() { let nombre = prompt("¿Cómo te llamas?"); alert("Hola, " + nombre); }
+        function estructurasControl() { let edad = prompt("¿Qué edad tienes?"); if (edad >= 18) alert("Eres mayor de edad"); else alert("Eres menor de edad"); }
+        function saludo() { alert("Hola desde una función!"); }
+        function mostrarObjeto() { let persona = {nombre: "Ana", edad: 20, saludar: function() { alert("Hola, soy " + this.nombre); }}; persona.saludar(); }
+    </script>
+
+</body>
+</html>
